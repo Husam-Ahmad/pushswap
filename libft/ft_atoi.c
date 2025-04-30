@@ -6,20 +6,20 @@
 /*   By: huahmad <huahmad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 19:15:29 by huahmad           #+#    #+#             */
-/*   Updated: 2025/01/28 14:16:00 by huahmad          ###   ########.fr       */
+/*   Updated: 2025/02/14 12:22:46 by huahmad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
-#include "libft.h"
 
 long	ft_atoi(char *str)
 {
 	int		i;
 	int		neg;
-	long		o;
+	long	o;
 	int		sign;
 
 	neg = 1;
@@ -48,5 +48,5 @@ long	ft_atoi(char *str)
 // 	char *s = "-54";
 
 // 	printf("ft_atoi(\"%s\") = %d\n", s, ft_atoi(s));
-// 	return 0;
+// 	return (0);
 // }

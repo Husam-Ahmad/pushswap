@@ -6,7 +6,7 @@
 /*   By: huahmad <huahmad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 19:24:01 by huahmad           #+#    #+#             */
-/*   Updated: 2025/02/03 16:50:25 by huahmad          ###   ########.fr       */
+/*   Updated: 2025/03/17 14:22:30 by huahmad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,9 @@ char	**ft_split(char const *s, char c)
 {
 	size_t	substr;
 	char	**ptrstr;
+	int		i;
 
+	i = 0;
 	substr = 0;
 	substr = count(s, c);
 	ptrstr = malloc((substr + 1) * sizeof(char *));
@@ -97,7 +99,16 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	ptrstr[substr] = NULL;
 	if (putin(ptrstr, s, c))
+	{
+		while (i < (int)substr)
+		{
+			if (ptrstr[i] != NULL)
+				free(ptrstr[i]);
+			i++;
+		}
+		free(ptrstr);
 		return (NULL);
+	}
 	return (ptrstr);
 }
 

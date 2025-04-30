@@ -6,34 +6,49 @@
 /*   By: huahmad <huahmad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 14:18:01 by huahmad           #+#    #+#             */
-/*   Updated: 2025/02/10 14:54:42 by huahmad          ###   ########.fr       */
+/*   Updated: 2025/02/14 12:19:46 by huahmad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pushswap.h"  
+#include "../pushswap.h"
 
-static void	rev_rotate(t_stack_node **stack) 
+int	stack_len(t_stack_node *stack)
+{
+	int	count;
+
+	if (!stack)
+		return (0);
+	count = 0;
+	while (stack)
+	{
+		stack = stack->next;
+		count++;
+	}
+	return (count);
+}
+
+static void	rev_rotate(t_stack_node **stack)
 {
 	t_stack_node	*last;
 
-	if (!*stack || !(*stack)->next) 
+	if (!*stack || !(*stack)->next)
 		return ;
 	last = find_last(*stack);
-	last->prev->next = NULL; 
-	last->next = *stack; 
-	last->prev = NULL; 
-	*stack = last;  
-	last->next->prev = last; 
+	last->prev->next = NULL;
+	last->next = *stack;
+	last->prev = NULL;
+	*stack = last;
+	last->next->prev = last;
 }
 
-void	rra(t_stack_node **a, bool print) 
+void	rra(t_stack_node **a, bool print)
 {
 	rev_rotate(a);
 	if (!print)
 		ft_printf("rra\n");
 }
 
-void	rrb(t_stack_node **b, bool print) 
+void	rrb(t_stack_node **b, bool print)
 {
 	rev_rotate(b);
 	if (!print)

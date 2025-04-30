@@ -6,26 +6,26 @@
 /*   By: huahmad <huahmad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 14:20:15 by huahmad           #+#    #+#             */
-/*   Updated: 2025/02/10 14:54:54 by huahmad          ###   ########.fr       */
+/*   Updated: 2025/02/14 12:20:20 by huahmad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pushswap.h"  
+#include "../pushswap.h"
 
-static void	swap(t_stack_node **head) 
+static void	swap(t_stack_node **head)
 {
-	if (!*head || !(*head)->next) 
+	if (!*head || !(*head)->next)
 		return ;
-	*head = (*head)->next; 
-	(*head)->prev->prev = *head; 
-	(*head)->prev->next = (*head)->next; 
+	*head = (*head)->next;
+	(*head)->prev->prev = *head;
+	(*head)->prev->next = (*head)->next;
 	if ((*head)->next)
 		(*head)->next->prev = (*head)->prev;
-	(*head)->next = (*head)->prev; 
-	(*head)->prev = NULL; 
+	(*head)->next = (*head)->prev;
+	(*head)->prev = NULL;
 }
 
-void	sa(t_stack_node	**a, bool print) 
+void	sa(t_stack_node **a, bool print)
 {
 	swap(a);
 	if (!print)
